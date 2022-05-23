@@ -1,6 +1,6 @@
 import styled from '@emotion/styled';
 export const Form = styled.form`
-  margin: 150px auto;
+  margin: 0 auto;
   padding: 15px;
   width: 300px;
   display: flex;
@@ -45,20 +45,17 @@ export const Input = styled.input`
 `;
 
 export const Button = styled.button`
-  width: 75px;
-  height: 30px;
-
+  padding: 10px;
   margin-top: 15px;
   background-color: #fc02f9;
   border-radius: 3px;
   color: rgba(255, 255, 255, 0.737);
   font-weight: 700;
-  font-size: 15px;
+  font-size: 12px;
   border: none;
   cursor: pointer;
   transition: all 250ms cubic-bezier(0.4, 0, 0.2, 1);
   &:hover {
-    // transform: scale(1.03);
     opacity: 0.7;
   }
 `;
