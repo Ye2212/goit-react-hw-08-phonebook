@@ -7,7 +7,8 @@ export const MainBox = styled.div`
 `;
 export const Header = styled.header`
   padding: 15px;
-  border-bottom: 5px solid #fc02f9;
+  background-color: black;
+  border-bottom: 3px solid #fc02f9;
   display: flex;
   align-items: center;
 `;
@@ -17,4 +18,5 @@ export const Footer = styled.footer`
   // border-top: 1px solid #fc02f9;
   background-color: black;
   padding: 10px;
+  border-top: 3px solid #fc02f9;
 `;
