@@ -6,6 +6,10 @@ export const LogOutWrapper = styled.div`
   width: 50%;
   text-align: center;
 `;
+export const UserName = styled.p`
+  color: #fc02f9;
+`;
+
 export const Text = styled.p`
   color: rgba(255, 255, 255, 0.537);
   margin: 0;
