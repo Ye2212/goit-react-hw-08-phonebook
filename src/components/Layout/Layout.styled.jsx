@@ -7,7 +7,7 @@ export const Header = styled.header`
   padding: 20px 40px;
   height: 40px;
 
-  border-bottom: 1px solid #fc02f9;
+  border-bottom: 3px solid #fc02f9;
   display: flex;
 
   align-items: center;
@@ -18,5 +18,6 @@ export const Main = styled.main`
 export const Footer = styled.footer`
   text-align: center;
   padding: 10px;
+  color: rgba(255, 255, 255, 0.537);
   border-top: 1px solid #fc02f9;
 `;

@@ -35,7 +35,7 @@ export default function LoginPage() {
 
   return (
     <>
-      <Title>Please, Log In</Title>
+      <Title>Do You already have an account? Please, log in.</Title>
       <Form onSubmit={handleSubmit}>
         <Label>
           <Span>E-mail</Span>

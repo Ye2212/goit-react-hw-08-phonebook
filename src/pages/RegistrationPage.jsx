@@ -39,7 +39,7 @@ export default function RegistrationPage() {
 
   return (
     <>
-      <Title>Please, Sign In</Title>
+      <Title>Don't have an accaunt? Please, sign in.</Title>
       <Form onSubmit={handleSubmit} autoComplete="off">
         <Label>
           <Span>Enter Your name</Span>

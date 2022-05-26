@@ -15,7 +15,7 @@ export const Form = styled.form`
   // }
   // cursor: zoom-in;
   // border: 2px dotted #fc02f9;
-  background-color: #00000042;
+  // background-color: #00000042;
   // box-shadow: 0px 1px 3px 0px rgba(0, 0, 0, 1),
   // 0px 1px 1px 0px rgba(0, 0, 0, 0.14), 0px 2px 1px -1px rgba(0, 0, 0, 0.12);
 `;
@@ -56,7 +56,8 @@ export const Button = styled.button`
   margin-top: 15px;
   background-color: #fc02f9;
   border-radius: 3px;
-  color: rgba(255, 255, 255, 0.737);
+  color: black;
+  // color: rgba(255, 255, 255, 0.737);
   font-weight: 700;
   font-size: 12px;
   border: none;
@@ -67,7 +68,7 @@ export const Button = styled.button`
   }
 `;
 export const Title = styled.h2`
-  margin: 30px auto;
+  margin: 100px auto;
   font-size: 20px;
   font-weight: 500;
   color: rgba(255, 255, 255, 0.537);
