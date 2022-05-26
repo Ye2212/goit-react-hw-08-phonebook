@@ -5,7 +5,7 @@ export const Login = () => {
     <Form>
       <Label>
         <Span>E-mail</Span>
-        <Input type="email" name="email" />
+        <Input type="email" name="email" autocomplete="off" />
       </Label>
 
       <label>

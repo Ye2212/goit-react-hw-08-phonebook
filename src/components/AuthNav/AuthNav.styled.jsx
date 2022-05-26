@@ -1,13 +1,11 @@
 import styled from '@emotion/styled';
 import { NavLink } from 'react-router-dom';
-export const Nav = styled.div`
-  width: 100%;
-  display: flex;
-`;
+
 export const StyledNavLink = styled(NavLink)`
   display: inline-block;
   text-decoration: none;
-  padding: 0 12px;
+  width: 70px;
+  padding: 0 15px;
   font-weight: 500;
   font-size: 18px;
   color: rgba(255, 255, 255, 0.537);
@@ -19,4 +17,7 @@ export const StyledNavLink = styled(NavLink)`
   &.active {
     color: #fc02f9;
   }
+`;
+export const AuthNavWrapper = styled.div`
+  display: flex;
 `;

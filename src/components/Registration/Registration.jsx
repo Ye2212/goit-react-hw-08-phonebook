@@ -16,7 +16,7 @@ export const Registration = () => {
         <Span>Enter Your password</Span>
         <Input type="password" name="password" />
       </Label>
-      <Button type="submit">Register</Button>
+      <Button type="submit">Sign In</Button>
     </Form>
   );
 };
