@@ -68,7 +68,7 @@ export const Button = styled.button`
   }
 `;
 export const Title = styled.h2`
-  margin: 100px auto;
+  // margin: 100px auto;
   font-size: 20px;
   font-weight: 500;
   color: rgba(255, 255, 255, 0.537);
