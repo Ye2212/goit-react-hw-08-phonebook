@@ -41,9 +41,36 @@ const logOut = createAsyncThunk('auth/logout', async credentials => {
   }
 });
 
+const fetchCurrentUser = createAsyncThunk(
+  'auth/refresh',
+  async (_, thunkAPI) => {
+    const state = thunkAPI.getState();
+    console.log(state);
+    const persistedToken = state.auth.token;
+    console.log(persistedToken);
+
+    if (persistedToken === null) {
+      console.log('There is no token, return from fetchCurrentUser');
+      return thunkAPI.rejectWithValue();
+    }
+    token.set(persistedToken);
+    try {
+      const { data } = await axios.get('/users/current');
+
+      return data;
+    } catch (error) {
+      // console.log(error);
+      // error.message =
+      // 'Something went wrong! Please LogIn or Register to continue!';
+      return thunkAPI.rejectWithValue();
+    }
+  }
+);
+
 const operations = {
   register,
   logIn,
   logOut,
+  fetchCurrentUser,
 };
 export default operations;
