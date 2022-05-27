@@ -1,7 +1,7 @@
 import styled from '@emotion/styled';
-
+import { Link } from 'react-router-dom';
 export const Text = styled.p`
-  margin: 100px auto;
+  margin: 0 auto;
   width: 25%;
   padding: 20px;
   text-align: center;
@@ -11,17 +11,15 @@ export const Text = styled.p`
   // border: 2px dotted #fc02f9;
   color: black;
 `;
-
-export const MainTitle = styled.h1`
-  margin-top: 150px;
-  text-align: center;
-  color: #fc02f9;
-  font-size: 70px;
-`;
-
 export const Title = styled.h2`
-  margin: 0 auto;
-  font-size: 30px;
-  color: inherit;
+  display: block;
+  // margin: 130px 0;
   text-align: center;
+  font-size: 25px;
+  color: #fc02f9;
+`;
+export const StyledLink = styled(Link)`
+  // text-decoration: none;
+  color: black;
+  // font-size: 15px;
 `;

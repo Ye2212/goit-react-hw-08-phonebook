@@ -14,6 +14,7 @@ export const Header = styled.header`
 `;
 export const Main = styled.main`
   min-height: 100vh;
+  padding: 100px 20px;
 `;
 export const Footer = styled.footer`
   text-align: center;

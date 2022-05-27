@@ -8,7 +8,7 @@ export const ContactListEl = styled.ul`
   justify-content: center;
   align-items: stretch;
   border-radius: 5px;
-  background-color: black;
+  // background-color: black;
 `;
 export const ContactListItem = styled.li`
   display: flex;

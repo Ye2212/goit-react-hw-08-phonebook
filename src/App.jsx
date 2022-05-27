@@ -3,7 +3,8 @@ import { lazy, Suspense, useEffect } from 'react';
 import { Layout } from './components/Layout/Layout';
 import authOperations from './redux/auth/auth-operations';
 import { useDispatch } from 'react-redux';
-import PrivateRoute from 'components/PrivateRoute';
+import PrivateRoute from 'components/PrivateRoute/PrivateRoute';
+import PublicRoute from 'components/PublicRoute/PublicRoute';
 
 const HomePage = lazy(() => import('./pages/HomePage'));
 const ContactsPage = lazy(() => import('./pages/ContactsPage'));
@@ -23,7 +24,6 @@ function App() {
         <Routes>
           <Route path="/" element={<Layout />}>
             <Route index element={<HomePage />} />
-            {/* <Route path="contacts" element={<ContactsPage />} /> */}
             <Route
               path="contacts"
               element={
@@ -32,8 +32,22 @@ function App() {
                 </PrivateRoute>
               }
             />
-            <Route path="login" element={<LoginPage />} />
-            <Route path="register" element={<RegistrationPage />} />
+            <Route
+              path="login"
+              element={
+                <PublicRoute restricted>
+                  <LoginPage />
+                </PublicRoute>
+              }
+            />
+            <Route
+              path="register"
+              element={
+                <PublicRoute restricted>
+                  <RegistrationPage />
+                </PublicRoute>
+              }
+            />
           </Route>
         </Routes>
       </Suspense>
