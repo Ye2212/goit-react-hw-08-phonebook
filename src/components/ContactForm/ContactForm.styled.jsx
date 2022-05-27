@@ -1,7 +1,7 @@
 import styled from '@emotion/styled';
 
 export const Form = styled.form`
-  margin: 0 auto;
+  margin-bottom: 60px;
   padding: 15px;
   width: 300px;
   display: flex;
@@ -21,6 +21,7 @@ export const Label = styled.label`
 export const Text = styled.span`
   font-weight: 600;
   margin-bottom: 5px;
+  color: rgba(255, 255, 255, 0.737);
 `;
 
 export const Input = styled.input`
@@ -50,7 +51,8 @@ export const AddContactBtn = styled.button`
   margin-top: 15px;
   background-color: #fc02f9;
   border-radius: 3px;
-  color: rgba(255, 255, 255, 0.737);
+  // color: rgba(255, 255, 255, 0.737);
+  color: black;
   font-weight: 700;
   font-size: 12px;
   border: none;

@@ -1,6 +1,6 @@
 import styled from '@emotion/styled';
 export const ContactListEl = styled.ul`
-  margin: 10px auto 0;
+  // margin: 10px auto 0;
   padding: 15px;
   width: 300px;
   display: flex;

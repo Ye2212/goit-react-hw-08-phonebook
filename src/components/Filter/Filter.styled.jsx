@@ -1,15 +1,19 @@
 import styled from '@emotion/styled';
 
 export const FilterLabel = styled.label`
-  // margin-bottom: 5px;
   font-size: 12px;
+  display: block;
+  margin: 0 auto;
 `;
 
 export const FilterText = styled.p`
   font-weight: 600;
   margin-bottom: 5px;
+  color: rgba(255, 255, 255, 0.737);
 `;
 export const FilterInput = styled.input`
+  margin-bottom: 50px;
+  display: block;
   width: 250px;
   height: 25px;
   color: inherit;

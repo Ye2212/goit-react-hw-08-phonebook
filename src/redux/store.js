@@ -25,13 +25,12 @@ export const store = configureStore({
     [contactsApi.reducerPath]: contactsApi.reducer,
     filter: contactsSlice,
   },
-  middleware(getDefaultMiddleware) {
-    return getDefaultMiddleware({
+  middleware: getDefaultMiddleware =>
+    getDefaultMiddleware({
       serializableCheck: {
         ignoredActions: [FLUSH, REHYDRATE, PAUSE, PERSIST, PURGE, REGISTER],
       },
-    });
-  },
+    }).concat(contactsApi.middleware),
 });
 
 export const persistor = persistStore(store);
