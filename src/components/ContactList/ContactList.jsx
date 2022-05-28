@@ -1,22 +1,27 @@
-import { useSelector } from 'react-redux';
+import { useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 import Contact from 'components/Contact/Contact';
 import { ContactListEl, ContactListItem } from './ContactList.styled';
 import {
-  useFetchContactsQuery,
-  useDeleteContactMutation,
-} from 'redux/contactsApi';
-import { getFilter } from 'redux/contactsSelectors';
+  deleteContactThunk,
+  fetchContactsThunk,
+} from 'redux/contacts/contacts-operations';
+import contactsSelectors from 'redux/contacts/contacts-selectors';
 
 function ContactList() {
-  const { data = [] } = useFetchContactsQuery();
-  const { filter } = useSelector(state => getFilter(state));
+  const dispatch = useDispatch();
+  const contacts = useSelector(contactsSelectors.getContacts);
+  const filterValue = useSelector(contactsSelectors.getFilterValue);
+  // const isLoading = useSelector(getLoading);
+  // const isError = useSelector(getError);
 
-  const [deleteContact] = useDeleteContactMutation();
-  const deleteSelectedContact = contactId => deleteContact(contactId);
+  useEffect(() => {
+    dispatch(fetchContactsThunk());
+  }, [dispatch]);
 
   const filteredContacts = () => {
-    const normalizedFilter = filter.toLowerCase();
-    return data.filter(contact =>
+    const normalizedFilter = filterValue.toLowerCase();
+    return contacts.filter(contact =>
       contact.name.toLowerCase().includes(normalizedFilter)
     );
   };
@@ -24,14 +29,14 @@ function ContactList() {
   const filteredContactList = filteredContacts();
   return (
     <ContactListEl>
-      {data &&
+      {contacts &&
         filteredContactList.map(({ id, name, phone }) => {
           return (
             <ContactListItem key={id}>
               <Contact
                 name={name}
                 phone={phone}
-                onDeleteContact={deleteSelectedContact}
+                onDeleteContact={dispatch(deleteContactThunk(id))}
                 contactId={id}
               />
             </ContactListItem>

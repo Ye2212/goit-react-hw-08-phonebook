@@ -2,22 +2,20 @@ import { useState } from 'react';
 import { Form, Label, Text, Input, AddContactBtn } from './ContactForm.styled';
 import { FiUserPlus } from 'react-icons/fi';
 import { nanoid } from 'nanoid';
-import {
-  useFetchContactsQuery,
-  useCreateContactMutation,
-} from 'redux/contactsApi';
+import { useDispatch, useSelector } from 'react-redux';
+import contactsSelectors from 'redux/contacts/contacts-selectors';
+import { addContactThunk } from '../../redux/contacts/contacts-operations';
 
 function ContactForm() {
-  const { data: contacts } = useFetchContactsQuery();
-  const [createContact] = useCreateContactMutation();
-
   const [name, setName] = useState('');
   const [phone, setPhone] = useState('');
+  const contacts = useSelector(contactsSelectors.getContacts);
+  const dispatch = useDispatch();
 
   const handleChangeName = e => setName(e.currentTarget.value);
   const handleChangePhone = e => setPhone(e.currentTarget.value);
 
-  const handleSubmit = async e => {
+  const handleSubmit = e => {
     e.preventDefault();
 
     const newContact = {
@@ -32,7 +30,7 @@ function ContactForm() {
     ) {
       return alert(`${name} is already in contacts`);
     }
-    await createContact(newContact);
+    dispatch(addContactThunk(newContact));
     alert(`${name} is added to your contacts`);
 
     formReset();
