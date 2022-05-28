@@ -6,7 +6,7 @@ function Filter() {
   const dispatch = useDispatch();
 
   const changeFilterInput = e => {
-    console.log(e.currentTarget.value);
+    // console.log(e.currentTarget.value);
     dispatch(filteredContact(e.currentTarget.value));
   };
   return (

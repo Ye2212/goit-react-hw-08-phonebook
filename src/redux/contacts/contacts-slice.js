@@ -13,7 +13,7 @@ const contactsSlice = createSlice({
     isLoading: true,
     error: null,
   },
-  reducer: {
+  reducers: {
     filteredContact: (state, action) => {
       console.log(action);
       state.filter = action.payload;
@@ -61,6 +61,5 @@ const contactsSlice = createSlice({
   },
 });
 
-export const { addContact, deleteContact, filteredContact } =
-  contactsSlice.actions;
+export const { filteredContact } = contactsSlice.actions;
 export const contactsSliceReducer = contactsSlice.reducer;
