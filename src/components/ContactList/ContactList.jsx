@@ -2,10 +2,7 @@ import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import Contact from 'components/Contact/Contact';
 import { ContactListEl, ContactListItem } from './ContactList.styled';
-import {
-  deleteContactThunk,
-  fetchContactsThunk,
-} from 'redux/contacts/contacts-operations';
+import { fetchContactsThunk } from 'redux/contacts/contacts-operations';
 import contactsSelectors from 'redux/contacts/contacts-selectors';
 
 function ContactList() {
@@ -30,15 +27,10 @@ function ContactList() {
   return (
     <ContactListEl>
       {contacts &&
-        filteredContactList.map(({ id, name, phone }) => {
+        filteredContactList.map(({ id, name, number }) => {
           return (
             <ContactListItem key={id}>
-              <Contact
-                name={name}
-                phone={phone}
-                onDeleteContact={dispatch(deleteContactThunk(id))}
-                contactId={id}
-              />
+              <Contact name={name} number={number} contactId={id} />
             </ContactListItem>
           );
         })}

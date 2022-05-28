@@ -1,27 +1,25 @@
 import { useState } from 'react';
 import { Form, Label, Text, Input, AddContactBtn } from './ContactForm.styled';
 import { FiUserPlus } from 'react-icons/fi';
-import { nanoid } from 'nanoid';
 import { useDispatch, useSelector } from 'react-redux';
 import contactsSelectors from 'redux/contacts/contacts-selectors';
-import { addContactThunk } from '../../redux/contacts/contacts-operations';
+import { addContactThunk } from 'redux/contacts/contacts-operations';
 
 function ContactForm() {
   const [name, setName] = useState('');
-  const [phone, setPhone] = useState('');
+  const [number, setNumber] = useState('');
   const contacts = useSelector(contactsSelectors.getContacts);
   const dispatch = useDispatch();
 
   const handleChangeName = e => setName(e.currentTarget.value);
-  const handleChangePhone = e => setPhone(e.currentTarget.value);
+  const handleChangePhone = e => setNumber(e.currentTarget.value);
 
   const handleSubmit = e => {
     e.preventDefault();
 
     const newContact = {
-      id: nanoid(),
       name,
-      phone,
+      number,
     };
     if (
       contacts.some(
@@ -31,14 +29,14 @@ function ContactForm() {
       return alert(`${name} is already in contacts`);
     }
     dispatch(addContactThunk(newContact));
-    alert(`${name} is added to your contacts`);
+    // alert(`${name} is added to your contacts`);
 
     formReset();
   };
 
   const formReset = () => {
     setName('');
-    setPhone('');
+    setNumber('');
   };
 
   return (
@@ -61,7 +59,7 @@ function ContactForm() {
           placeholder=""
           type="tel"
           name="phone"
-          value={phone}
+          value={number}
           onChange={handleChangePhone}
           pattern="\+?\d{1,4}?[-.\s]?\(?\d{1,3}?\)?[-.\s]?\d{1,4}[-.\s]?\d{1,4}[-.\s]?\d{1,9}"
           title="Phone number must be digits and can contain spaces, dashes, parentheses and can start with +"
